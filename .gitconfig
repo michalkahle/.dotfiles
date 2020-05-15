@@ -1,3 +1,9 @@
 [user]
-	email = michalkahle@gmail.com
 	name = Michal Kahle
+	email = michalkahle@gmail.com
+[push]
+	default = simple
+[credential]
+	helper = store
+[core]
+#	autocrlf = input
