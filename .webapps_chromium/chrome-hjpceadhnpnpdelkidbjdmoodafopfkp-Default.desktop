@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Calendar
+Exec=/usr/bin/chromium-browser --profile-directory=Default --app-id=hjpceadhnpnpdelkidbjdmoodafopfkp
+Icon=chrome-hjpceadhnpnpdelkidbjdmoodafopfkp-Default
+StartupWMClass=crx_hjpceadhnpnpdelkidbjdmoodafopfkp
