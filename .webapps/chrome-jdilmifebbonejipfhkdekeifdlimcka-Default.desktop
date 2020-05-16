@@ -1,9 +1,0 @@
-#!/usr/bin/env xdg-open
-[Desktop Entry]
-Version=1.0
-Terminal=false
-Type=Application
-Name=Desmos
-Exec=/opt/google/chrome/google-chrome --profile-directory=Default --app-id=jdilmifebbonejipfhkdekeifdlimcka
-Icon=chrome-jdilmifebbonejipfhkdekeifdlimcka-Default
-StartupWMClass=crx_jdilmifebbonejipfhkdekeifdlimcka
