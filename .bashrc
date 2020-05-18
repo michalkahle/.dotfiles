@@ -110,5 +110,7 @@ fi
 #fi
 #unset __conda_setup
 
-
+# remove games from PATH
+PATH=${PATH/":/usr/games"/""}
+PATH=${PATH/":/usr/local/games"/""}
 # PATH="$HOME/.local/bin:$PATH"
