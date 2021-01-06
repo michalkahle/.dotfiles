@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# cd into the directory of the script
+cd "$(dirname "$0")"
+
+if ! [ -d ~/.dotfiles_backup ]; then mkdir ~/.dotfiles_backup; fi
+for file in ./*; do
+  if [ -f $file -a $file != './create_symlinks' ]; then
+    basefile="$(basename $file)"
+    echo "$basefile"
+    if [ -f ~/.$basefile ]; then mv ~/.$basefile ~/.dotfiles_backup/$basefile; fi
+    echo $(realpath ./$basefile)
+    ln -sf $(realpath ./$basefile) ~/.$basefile 
+  fi
+done
