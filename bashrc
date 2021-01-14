@@ -92,6 +92,8 @@ alias gc='git commit'
 alias gca='git commit -a'
 alias gl="git log --graph --pretty=format:'%C(yellow)%h%C(red)%d %Creset%s %C(green)(%cr) %C(blue)%an%Creset'"
 alias gd='git diff'
+alias gpr='git pull --rebase'
+alias gpu='git push'
 
 alias userm='/media/primus/38_INSTRUMENTS/User - Michal/'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
