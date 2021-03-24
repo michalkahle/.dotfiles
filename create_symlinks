@@ -8,7 +8,9 @@ for file in ./*; do
   if [ -f $file -a $file != './create_symlinks' -a $file != './README.md' ]; then
     basefile="$(basename $file)"
     echo "$basefile"
-    if [ -f ~/.$basefile ]; then mv ~/.$basefile ~/.dotfiles_backup/$basefile; fi
-    ln -sf $(realpath ./$basefile) ~/.$basefile 
+    if [ -f ~/.$basefile -a ! -L ~/.$basefile ]; then 
+        mv ~/.$basefile ~/.dotfiles_backup/$basefile; 
+    fi
+    ln -sf $(readlink -f ./$basefile) ~/.$basefile 
   fi
 done
