@@ -19,30 +19,11 @@ shopt -s checkwinsize
 # "**" will match in subdirectories recursively.
 shopt -s globstar
 
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    xterm-color|*-256color) PS1='\[\033[07;32m\]\w\$\[\033[00m\]';;
+    *)PS1='\u@\h:\w\$ ';;
 esac
-
-force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[07;32m\]\w\$\[\033[00m\] '
-else
-    PS1='\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -94,10 +75,6 @@ alias gl="git log --graph --pretty=format:'%C(yellow)%h%C(red)%d %Creset%s %C(gr
 alias gd='git diff'
 alias gpr='git pull --rebase'
 alias gpu='git push'
-
-alias userm='/media/primus/38_INSTRUMENTS/User - Michal/'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
 
 
 if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
