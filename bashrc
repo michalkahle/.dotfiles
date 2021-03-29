@@ -21,7 +21,7 @@ shopt -s globstar
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) PS1='\[\033[07;32m\]\w\$\[\033[00m\]';;
+    xterm-color|*-256color|linux) PS1='\[\033[07;32m\]\w\$\[\033[00m\] ';;
     *)PS1='\u@\h:\w\$ ';;
 esac
 
