@@ -1,6 +1,4 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # If not running interactively, don't do anything
 case $- in
@@ -19,20 +17,17 @@ shopt -s checkwinsize
 # "**" will match in subdirectories recursively.
 shopt -s globstar
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color|linux) PS1='\[\033[07;32m\]\w\$\[\033[00m\] ';;
-    *)PS1='\u@\h:\w\$ ';;
-esac
+# set a fancy prompt
+if [ -f ~/.prompt_color ];
+then
+    pcolor=$(<~/.prompt_color)
+else
+    pcolor=32
+fi
+PS1="\[\e[07;${pcolor}m\]\w\$\[\e[00m\] "
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+# set the xterm title to user@host:dir
+PS1="\[\e]0;\u@\h: \w\a\]$PS1"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -43,9 +38,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
     alias colordiff='colordiff --unified'
 fi
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
