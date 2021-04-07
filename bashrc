@@ -18,9 +18,10 @@ shopt -s checkwinsize
 shopt -s globstar
 
 # set a fancy prompt
-if [ -f ~/.prompt_color ];
-then
+if [ -f ~/.prompt_color ]; then
     pcolor=$(<~/.prompt_color)
+elif [ ! -z "${SSH_CONNECTION}" ]; then
+    pcolor=36
 else
     pcolor=32
 fi
