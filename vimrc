@@ -3,3 +3,4 @@ if version >= 703
 endif
 syntax on
 set incsearch
+set hlsearch
