@@ -146,7 +146,7 @@ set hlsearch
 set autoindent
 colorscheme desert
 
-autocmd FileType python set expandtab, shiftwidth=4
+autocmd FileType python set expandtab shiftwidth=4
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
