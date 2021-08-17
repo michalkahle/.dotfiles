@@ -4,13 +4,11 @@
 cd "$(dirname "$0")"
 
 if ! [ -d ~/.dotfiles_backup ]; then mkdir ~/.dotfiles_backup; fi
-for file in ./*; do
-  if [ -f $file -a $file != './create_symlinks' -a $file != './README.md' ]; then
-    basefile="$(basename $file)"
-    echo "$basefile"
-    if [ -f ~/.$basefile -a ! -L ~/.$basefile ]; then 
-        mv ~/.$basefile ~/.dotfiles_backup/$basefile; 
+for file in bashrc condarc gitconfig profile vimrc
+do
+    echo "$file"
+    if [ -f ~/.$file -a ! -L ~/.$file ]; then 
+        mv ~/.$file ~/.dotfiles_backup/$file; 
     fi
-    ln -sf $(readlink -f ./$basefile) ~/.$basefile 
-  fi
+    ln -sf $(realpath ./$file) ~/.$file 
 done

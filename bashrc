@@ -21,7 +21,7 @@ shopt -s globstar
 if [ -f ~/.prompt_color ]; then
     pcolor=$(<~/.prompt_color)
 elif [ ! -z "${SSH_CONNECTION}" ]; then
-    pcolor=36
+    pcolor=37
 else
     pcolor=32
 fi
